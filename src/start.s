@@ -1,41 +1,51 @@
-; use ELF format
-format ELF
+format elf
 
-; 32-bit code
 use32
 
-; external symbols
-extrn 'kernel_main' as kernel_main ; kmain is defined in kmain.c
 
-; symbols we're exporting
-public start ; make entry point visible to the linker
 
-; Multiboot header
-MULTIBOOT_HEADER:
-	.ALIGN    = 0x1                ; align loaded modules on page boundaries
-	.MEMINFO  = 0x2                ; provide memory map
-	.FLAGS    = 0x3                ; ALIGN | MEMINFO.  This is the Multiboot 'flag' field
-	.MAGIC    = 0x1badb002         ; 'magic number' lets bootloader find the header
-	.CHECKSUM = -(.MAGIC + .FLAGS) ; checksum required
+MULTIBOOT_HEADER_MAGIC = 0x1BADB002
+MULTIBOOT_HEADER_FLAGS = 00000000000000010000000000000000b
+CHECKSUM = -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)
 
-section '.text' executable align 4
+LOADBASE = 0x00100000
+STACK_SIZE = 0x4000
 
-mboot:
-	dd MULTIBOOT_HEADER.MAGIC
-	dd MULTIBOOT_HEADER.FLAGS
-	dd MULTIBOOT_HEADER.CHECKSUM
+public _start
+_start:
+	jmp multiboot_entry
 
-; reserve initial kernel space
-STACKSIZE = 0x4000 ; 16k stack
+	align 4
 
-start:
-	mov esp, STACKSIZE 	; set up the stack
-	push eax		; Multiboot magic number
-	push ebx		; Multiboot info structure
-	call kernel_main	; call the kernel
-  
-hang:
+multiboot_header:
+	dd MULTIBOOT_HEADER_MAGIC
+	dd MULTIBOOT_HEADER_FLAGS
+	dd CHECKSUM
+	dd LOADBASE + multiboot_header 	; header adress
+	dd LOADBASE 			; multiboot header adress
+	dd 00
+	dd 00
+	dd LOADBASE + multiboot_entry 	; entry adress
+	db 'hello'
+
+multiboot_entry:
+	mov esp, (stack_buffer + STACK_SIZE) ; stack
+	push 0 ; eflags
+	popf
+	push ebx
+	push ebx
+
+	mov byte [fs:0xB80F0], "G"
+	mov byte [fs:0xB80F2], "D"
+	mov byte [fs:0xB80F4], "T"
+
+	extrn test_main
+	call test_main
+
 	cli
-
 	hlt
-	jmp hang
+
+_data:
+stack_buffer:
+	times STACK_SIZE db 0
+_end:

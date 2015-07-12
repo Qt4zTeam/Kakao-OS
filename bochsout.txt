@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Fri Jul 10 01:29:56 2015 (time0=1436491796)
+00000000000i[CMOS  ] Setting initial clock to: Sat Jul 11 20:32:07 2015 (time0=1436646727)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -166,32 +166,32 @@
 00001498263i[BXVGA ] VBE known Display Interface b0c0
 00001498295i[BXVGA ] VBE known Display Interface b0c5
 00001501220i[VBIOS ] VBE Bios $Id: vbe.c,v 1.65 2014/07/08 18:02:25 vruppert Exp $
-00002612590i[XGUI  ] charmap update. Font Height is 16
-00903590798i[BIOS  ] Booting from 0000:7c00
-00906247823i[BIOS  ] int13_harddisk: function 41, unmapped device for ELDL=80
-00906251504i[BIOS  ] int13_harddisk: function 08, unmapped device for ELDL=80
-00906255168i[BIOS  ] *** int 15h function AX=00c0, BX=0000 not yet supported!
-00913529067i[CPU0  ] WARNING: HLT instruction with IF=0!
-01852829000p[XGUI  ] >>PANIC<< POWER button turned off.
-01852829000i[CPU0  ] CPU is in protected mode (halted)
-01852829000i[CPU0  ] CS.mode = 32 bit
-01852829000i[CPU0  ] SS.mode = 32 bit
-01852829000i[CPU0  ] EFER   = 0x00000000
-01852829000i[CPU0  ] | EAX=2bad0010  EBX=0002d000  ECX=0001edd0  EDX=00000001
-01852829000i[CPU0  ] | ESP=00003ff8  EBP=00067ee0  ESI=00053c8e  EDI=00053c8f
-01852829000i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
-01852829000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-01852829000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-01852829000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-01852829000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-01852829000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-01852829000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-01852829000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-01852829000i[CPU0  ] | EIP=0010001a (0010001a)
-01852829000i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
-01852829000i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-01852829000i[CPU0  ] 0x0010001a>> jmp .-4 (0x00100018) : EBFC
-01852829000i[CMOS  ] Last time is 1436493648 (Fri Jul 10 02:00:48 2015)
-01852829000i[XGUI  ] Exit
-01852829000i[      ] restoring default signal behavior
-01852829000i[SIM   ] quit_sim called with exit code 1
+00001576302i[XGUI  ] charmap update. Font Height is 16
+00866317278i[BIOS  ] Booting from 0000:7c00
+00868974303i[BIOS  ] int13_harddisk: function 41, unmapped device for ELDL=80
+00868977984i[BIOS  ] int13_harddisk: function 08, unmapped device for ELDL=80
+00868981648i[BIOS  ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00877294770i[CPU0  ] WARNING: HLT instruction with IF=0!
+01355339000p[XGUI  ] >>PANIC<< POWER button turned off.
+01355339000i[CPU0  ] CPU is in protected mode (halted)
+01355339000i[CPU0  ] CS.mode = 32 bit
+01355339000i[CPU0  ] SS.mode = 32 bit
+01355339000i[CPU0  ] EFER   = 0x00000000
+01355339000i[CPU0  ] | EAX=cafebabe  EBX=0002d000  ECX=0001edd0  EDX=00000001
+01355339000i[CPU0  ] | ESP=00004067  EBP=00067ee0  ESI=00053c8e  EDI=00053c8f
+01355339000i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af PF cf
+01355339000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+01355339000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+01355339000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+01355339000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+01355339000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+01355339000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+01355339000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+01355339000i[CPU0  ] | EIP=0010006f (0010006f)
+01355339000i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
+01355339000i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+01355339000i[CPU0  ] 0x0010006f>> add dword ptr ds:[ecx], eax : 0101
+01355339000i[CMOS  ] Last time is 1436648082 (Sat Jul 11 20:54:42 2015)
+01355339000i[XGUI  ] Exit
+01355339000i[      ] restoring default signal behavior
+01355339000i[SIM   ] quit_sim called with exit code 1
