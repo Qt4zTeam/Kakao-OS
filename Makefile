@@ -24,4 +24,4 @@ img:
 	umount /mnt/floppy/
 
 test:
-	bochs -f bochsrc -q
+	qemu-system-i386 -fda floppy.img

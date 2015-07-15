@@ -3,11 +3,11 @@
 # The only one that needs changing is the assembler 
 # rule, as we use nasm instead of GNU as.
 
-SOURCES=test.o start.o 
+SOURCES=start.o kernel.o
 
-CFLAGS=-c
+CFLAGS=-c -I ../include/
 LDFLAGS=-Tlink.ld
-ASFLAGS=
+ASFLAGS=-f elf
 CC=tcc
 
 all: $(SOURCES) link
@@ -16,7 +16,7 @@ clean:
 	-rm *.o kernel
 
 link:
-	i586-elf-ld $(LDFLAGS) -o kernel $(SOURCES)
+	i386-elf-ld $(LDFLAGS) -o kernel $(SOURCES)
 
 .s.o:
-	fasm $(ASFLAGS) $< $*.o
+	nasm $(ASFLAGS) $<
