@@ -22,7 +22,7 @@ mboot:
 	dd  end			; End of kernel.
 	dd  start		; Kernel entry point (initial EIP).
 
-EXTERN kernel_main
+EXTERN main
 start:
 	mov esp, 0x400000
 
@@ -30,7 +30,7 @@ start:
 
 
 
-	call kernel_main
+	call main
 
 	cli
 	jmp $
