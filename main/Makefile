@@ -3,12 +3,12 @@
 # The only one that needs changing is the assembler 
 # rule, as we use nasm instead of GNU as.
 
-SOURCES=start.o kernel.o screen.o
+SOURCES=start.o kernel.o
 
-CFLAGS=-c -I ../include/ -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti -std=gnu++11 -libgcc
-LDFLAGS=-Tlink.ld -ffreestanding -O2 -nostdlib
+CFLAGS=-c -I ../include/ -ffreestanding -O2 -Wall -Wextra
+LDFLAGS=-Tlink.ld -ffreestanding -O2 -nostdlib -lgcc
 ASFLAGS=-f elf
-CC=i386-elf-g++
+CC=tcc
 
 all: $(SOURCES) link
 
@@ -21,5 +21,5 @@ link:
 .s.o:
 	nasm $(ASFLAGS) $<
 
-.cpp.o:
+.c.o:
 	$(CC) $(CFLAGS) $<

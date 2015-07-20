@@ -10,17 +10,17 @@ KERNEL=kernel
 all: kernel img test
 
 clean:
-	(cd src; rm *.o kernel)
+	(cd main; rm *.o kernel)
 
 kernel:
-	(cd src; make)
+	(cd main/; make)
 
 
 img:
 	mkdir -p /mnt/floppy
 	
 	mount -o loop floppy.img /mnt/floppy/
-	cp src/$(KERNEL) /mnt/floppy/$(KERNEL)
+	cp main/$(KERNEL) /mnt/floppy/$(KERNEL)
 	umount /mnt/floppy/
 
 test:

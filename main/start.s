@@ -22,17 +22,12 @@ mboot:
 	dd  end			; End of kernel.
 	dd  start		; Kernel entry point (initial EIP).
 
-EXTERN main
+EXTERN kernel_main
 start:
 	mov esp, 0x400000
 
 	push eax
 
 
-
-	call main
-
-	cli
-	jmp $
-
-
+	mov edx, kernel_main
+	call edx
